@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hostel App</title>
+    <style>
+        /* Dark Theme Background matching the image */
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background: radial-gradient(circle at top, #2c1a0c 0%, #120b06 60%, #0a0604 100%);
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            color: #ffffff;
+        }
+
+        .container { 
+            text-align: center; 
+            width: 85%; 
+            max-width: 400px; 
+        }
+
+        h1 { 
+            font-size: 28px; 
+            margin-bottom: 40px; 
+            letter-spacing: 1px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .btn-link { 
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            text-decoration: none; 
+            padding: 22px; 
+            margin: 20px 0; 
+            border-radius: 25px; 
+            font-size: 18px; 
+            font-weight: 600; 
+            color: #120b06; 
+            transition: all 0.3s ease; 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 183, 3, 0.2);
+        }
+
+        /* Matching Gradient Effects with the image button style */
+        .btn-maintain { 
+            background: linear-gradient(135deg, #ffb703, #fb8500); 
+            box-shadow: 0 8px 20px rgba(251, 133, 0, 0.3);
+            color: #000000;
+        }
+
+        .btn-food { 
+            background: linear-gradient(135deg, #ffd166, #ff9f1c); 
+            box-shadow: 0 8px 20px rgba(255, 159, 28, 0.3);
+            color: #000000;
+        }
+
+        /* Mobile Interaction */
+        .btn-link:active { 
+            transform: scale(0.97); 
+            opacity: 0.9;
+        }
+
+        /* Icon size */
+        .btn-link span { margin-right: 10px; font-size: 22px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome</h1>
+    
+    <a href="Maintenance.php" class="btn-link btn-maintain">
+        <span>🛠️</span> Hostel Maintenance
+    </a>
+    <a href="order_food.php" class="btn-link btn-food">
+        <span>🍕</span> Food Ordering
+    </a>
+</div>
+
+</body>
+</html>

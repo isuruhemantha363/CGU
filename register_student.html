@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CGU Student Registration - University of Ruhuna</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+    <style>
+
+        :root {
+            --navy: #12345b;
+            --blue: #1769aa;
+            --sky: #edf6fc;
+            --line: #d8e4ee;
+            --ink: #172b4d;
+            --muted: #62748a;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+            font-family: "DM Sans", sans-serif;
+            color: var(--ink);
+            background: #f5f9fc;
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+
+        .register-wrapper {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(18, 52, 91, 0.08);
+            border: 1px solid var(--line);
+        }
+
+
+        /* ================= HEADER ================= */
+
+        .form-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 2px solid var(--sky);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+
+        .form-header img {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+
+        .form-header-text h1 {
+            margin: 0;
+            color: var(--navy);
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+
+        .form-header-text p {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+
+        .form-group > label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fafbfc;
+            color: var(--ink);
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
+
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.10);
+        }
+
+
+        select {
+            cursor: pointer;
+        }
+
+
+        select:disabled {
+            cursor: not-allowed;
+            background: #f1f4f7;
+            color: #8a98a8;
+        }
+
+
+        /* ================= CHECKBOX AREA ================= */
+
+        .checkbox-select {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 12px;
+            background: #f8fbfe;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+        }
+
+
+        .checkbox-option {
+            position: relative;
+        }
+
+
+        .checkbox-option input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+
+        .checkbox-option label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            width: 100%;
+            min-height: 44px;
+
+            margin: 0;
+            padding: 10px 12px;
+
+            background: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 500;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+        }
+
+
+        /* Custom checkbox */
+
+        .checkbox-option label::before {
+            content: "";
+
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
+
+            border: 2px solid #b7c5d3;
+            border-radius: 5px;
+
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: all 0.2s ease;
+        }
+
+
+        /* Hover */
+
+        .checkbox-option label:hover {
+            border-color: var(--blue);
+            background: #f4f9fd;
+        }
+
+
+        /* Checked */
+
+        .checkbox-option input[type="checkbox"]:checked + label {
+            background: var(--sky);
+            border-color: var(--blue);
+            color: var(--navy);
+        }
+
+
+        .checkbox-option input[type="checkbox"]:checked + label::before {
+            content: "✓";
+            background: var(--blue);
+            border-color: var(--blue);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+        /* ================= OTHER INPUT ================= */
+
+        .other-input {
+            display: none;
+
+            width: 100%;
+
+            margin-top: 8px;
+
+            padding: 12px 14px;
+
+            border: 1px solid var(--line);
+            border-radius: 8px;
+
+            background: #ffffff;
+
+            color: var(--ink);
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+        }
+
+
+        .other-input.show {
+            display: block;
+        }
+
+
+        .other-input::placeholder {
+            color: #8a9aad;
+        }
+
+
+        .other-input:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.10);
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        .submit-btn {
+            width: 100%;
+
+            margin-top: 30px;
+
+            padding: 14px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: var(--blue);
+            color: #ffffff;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+
+        .submit-btn:hover {
+            background: #125388;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            .register-wrapper {
+                padding: 25px 18px;
+            }
+
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .full-width {
+                grid-column: span 1;
+            }
+
+
+            .form-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+
+            .form-header-text h1 {
+                font-size: 19px;
+            }
+
+
+            .checkbox-select {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 450px) {
+
+            body {
+                padding: 10px;
+            }
+
+
+            .register-wrapper {
+                padding: 20px 14px;
+            }
+
+
+            .form-header img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="register-wrapper">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="form-header">
+
+        <img
+            src="cgu_logo1.png"
+            alt="CGU Logo"
+        >
+
+        <div class="form-header-text">
+
+            <h1>
+                Career Guidance Unit - Student Registration
+            </h1>
+
+            <p>
+                Faculty of Science · University of Ruhuna
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <form action="#" method="POST">
+
+
+        <div class="form-grid">
+
+
+            <!-- ================= BASIC DETAILS ================= -->
+
+            <div class="form-group">
+
+                <label for="reg_no">
+                    Registration Number
+                </label>
+
+                <input
+                    type="text"
+                    id="reg_no"
+                    name="reg_no"
+                    placeholder="e.g. SC/2022/1147"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="full_name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="full_name"
+                    name="full_name"
+                    placeholder="e.g. K. A. Nethmi Perera"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="batch">
+                    Batch / Year
+                </label>
+
+                <input
+                    type="text"
+                    id="batch"
+                    name="batch"
+                    placeholder="e.g. 47"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="degree">
+                    Degree Program
+                </label>
+
+                <select
+                    id="degree"
+                    name="degree"
+                    required
+                >
+
+                    <option value="">
+                        -- Select Degree Program --
+                    </option>
+
+                    <option value="biological-general">
+                        BSc General in Biological Degree
+                    </option>
+
+                    <option value="biological-honours">
+                        BSc Honours in Biological Degree
+                    </option>
+
+                    <option value="physical-general">
+                        BSc General in Physical Degree
+                    </option>
+
+                    <option value="physical-honours">
+                        BSc Honours in Physical Degree
+                    </option>
+
+                    <option value="bcs-general">
+                        BCS General Degree
+                    </option>
+
+                    <option value="bcs-honours">
+                        BCS Honours Degree
+                    </option>
+
+                    <option value="fmis-honours">
+                        BSc Honours in FMIS Degree
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ================= SUBJECTS ================= -->
+
+            <div class="form-group full-width">
+
+                <label for="subjects">
+                    Subject Combination
+                </label>
+
+                <select
+                    id="subjects"
+                    name="subjects"
+                    required
+                    disabled
+                >
+
+                    <option value="">
+                        -- Select Subject Combination --
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ================= EMAIL ================= -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    University Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="e.g. student@science.ruh.ac.lk"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="personal_email">
+                    Personal Email
+                </label>
+
+                <input
+                    type="email"
+                    id="personal_email"
+                    name="personal_email"
+                    placeholder="e.g. student@gmail.com"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="e.g. 0771234567"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 CAREER INTERESTS
+            ================================================== -->
+
+            <div class="form-group full-width">
+
+                <label>
+                    Career Interests
+                </label>
+
+
+                <div class="checkbox-select">
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career1" name="career_interests[]" value="Software Development">
+                        <label for="career1">Software Development</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career2" name="career_interests[]" value="Web Development">
+                        <label for="career2">Web Development</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career3" name="career_interests[]" value="Mobile App Development">
+                        <label for="career3">Mobile App Development</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career4" name="career_interests[]" value="Cybersecurity">
+                        <label for="career4">Cybersecurity</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career5" name="career_interests[]" value="Data Science">
+                        <label for="career5">Data Science</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career6" name="career_interests[]" value="Artificial Intelligence">
+                        <label for="career6">Artificial Intelligence</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career7" name="career_interests[]" value="Machine Learning">
+                        <label for="career7">Machine Learning</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career8" name="career_interests[]" value="Cloud Computing">
+                        <label for="career8">Cloud Computing</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career9" name="career_interests[]" value="Networking">
+                        <label for="career9">Networking</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career10" name="career_interests[]" value="Database Administration">
+                        <label for="career10">Database Administration</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career11" name="career_interests[]" value="UI/UX Design">
+                        <label for="career11">UI/UX Design</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career12" name="career_interests[]" value="Research">
+                        <label for="career12">Research</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career13" name="career_interests[]" value="Teaching / Academia">
+                        <label for="career13">Teaching / Academia</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career14" name="career_interests[]" value="Quality Assurance">
+                        <label for="career14">Quality Assurance</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career15" name="career_interests[]" value="Business Analysis">
+                        <label for="career15">Business Analysis</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career16" name="career_interests[]" value="Project Management">
+                        <label for="career16">Project Management</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="career17" name="career_interests[]" value="Entrepreneurship">
+                        <label for="career17">Entrepreneurship</label>
+                    </div>
+
+                    <div class="checkbox-option">
+
+                        <input
+                            type="checkbox"
+                            id="career18"
+                            name="career_interests[]"
+                            value="Other"
+                        >
+
+                        <label for="career18">
+                            Other
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="other_career_interests"
+                    name="other_career_interests"
+                    class="other-input"
+                    placeholder="Please specify your other career interest..."
+                >
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TECHNICAL SKILLS
+            ================================================== -->
+
+            <div class="form-group full-width">
+
+                <label>
+                    Technical Skills
+                </label>
+
+
+                <div class="checkbox-select">
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech1" name="tech_skills[]" value="C Programming">
+                        <label for="tech1">C Programming</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech2" name="tech_skills[]" value="C++">
+                        <label for="tech2">C++</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech3" name="tech_skills[]" value="Java">
+                        <label for="tech3">Java</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech4" name="tech_skills[]" value="Python">
+                        <label for="tech4">Python</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech5" name="tech_skills[]" value="JavaScript">
+                        <label for="tech5">JavaScript</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech6" name="tech_skills[]" value="PHP">
+                        <label for="tech6">PHP</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech7" name="tech_skills[]" value="HTML/CSS">
+                        <label for="tech7">HTML/CSS</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech8" name="tech_skills[]" value="React">
+                        <label for="tech8">React</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech9" name="tech_skills[]" value="Node.js">
+                        <label for="tech9">Node.js</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech10" name="tech_skills[]" value="SQL">
+                        <label for="tech10">SQL</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech11" name="tech_skills[]" value="Database Management">
+                        <label for="tech11">Database Management</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech12" name="tech_skills[]" value="Git/GitHub">
+                        <label for="tech12">Git/GitHub</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech13" name="tech_skills[]" value="Linux">
+                        <label for="tech13">Linux</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech14" name="tech_skills[]" value="Networking">
+                        <label for="tech14">Networking</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech15" name="tech_skills[]" value="Cybersecurity Fundamentals">
+                        <label for="tech15">Cybersecurity Fundamentals</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech16" name="tech_skills[]" value="Data Analysis">
+                        <label for="tech16">Data Analysis</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech17" name="tech_skills[]" value="Machine Learning">
+                        <label for="tech17">Machine Learning</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech18" name="tech_skills[]" value="Research Methods">
+                        <label for="tech18">Research Methods</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="tech19" name="tech_skills[]" value="Other">
+                        <label for="tech19">Other</label>
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="other_tech_skills"
+                    name="other_tech_skills"
+                    class="other-input"
+                    placeholder="Please specify your other technical skill..."
+                >
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 SOFT SKILLS
+            ================================================== -->
+
+            <div class="form-group full-width">
+
+                <label>
+                    Soft Skills
+                </label>
+
+
+                <div class="checkbox-select">
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft1" name="soft_skills[]" value="Communication">
+                        <label for="soft1">Communication</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft2" name="soft_skills[]" value="Teamwork">
+                        <label for="soft2">Teamwork</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft3" name="soft_skills[]" value="Leadership">
+                        <label for="soft3">Leadership</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft4" name="soft_skills[]" value="Problem Solving">
+                        <label for="soft4">Problem Solving</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft5" name="soft_skills[]" value="Critical Thinking">
+                        <label for="soft5">Critical Thinking</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft6" name="soft_skills[]" value="Time Management">
+                        <label for="soft6">Time Management</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft7" name="soft_skills[]" value="Adaptability">
+                        <label for="soft7">Adaptability</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft8" name="soft_skills[]" value="Creativity">
+                        <label for="soft8">Creativity</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft9" name="soft_skills[]" value="Decision Making">
+                        <label for="soft9">Decision Making</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft10" name="soft_skills[]" value="Presentation Skills">
+                        <label for="soft10">Presentation Skills</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft11" name="soft_skills[]" value="Public Speaking">
+                        <label for="soft11">Public Speaking</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft12" name="soft_skills[]" value="Research Skills">
+                        <label for="soft12">Research Skills</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft13" name="soft_skills[]" value="Work Ethic">
+                        <label for="soft13">Work Ethic</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="soft14" name="soft_skills[]" value="Other">
+                        <label for="soft14">Other</label>
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="other_soft_skills"
+                    name="other_soft_skills"
+                    class="other-input"
+                    placeholder="Please specify your other soft skill..."
+                >
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 SOFTWARE SKILLS
+            ================================================== -->
+
+            <div class="form-group full-width">
+
+                <label>
+                    Software Skills
+                </label>
+
+
+                <div class="checkbox-select">
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software1" name="software_skills[]" value="Microsoft Word">
+                        <label for="software1">Microsoft Word</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software2" name="software_skills[]" value="Microsoft Excel">
+                        <label for="software2">Microsoft Excel</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software3" name="software_skills[]" value="Microsoft PowerPoint">
+                        <label for="software3">Microsoft PowerPoint</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software4" name="software_skills[]" value="Google Workspace">
+                        <label for="software4">Google Workspace</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software5" name="software_skills[]" value="Visual Studio Code">
+                        <label for="software5">Visual Studio Code</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software6" name="software_skills[]" value="GitHub">
+                        <label for="software6">GitHub</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software7" name="software_skills[]" value="MySQL Workbench">
+                        <label for="software7">MySQL Workbench</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software8" name="software_skills[]" value="phpMyAdmin">
+                        <label for="software8">phpMyAdmin</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software9" name="software_skills[]" value="MATLAB">
+                        <label for="software9">MATLAB</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software10" name="software_skills[]" value="RStudio">
+                        <label for="software10">RStudio</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software11" name="software_skills[]" value="SPSS">
+                        <label for="software11">SPSS</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software12" name="software_skills[]" value="Figma">
+                        <label for="software12">Figma</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software13" name="software_skills[]" value="Canva">
+                        <label for="software13">Canva</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software14" name="software_skills[]" value="Docker">
+                        <label for="software14">Docker</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software15" name="software_skills[]" value="VirtualBox">
+                        <label for="software15">VirtualBox</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software16" name="software_skills[]" value="Wireshark">
+                        <label for="software16">Wireshark</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software17" name="software_skills[]" value="Cisco Packet Tracer">
+                        <label for="software17">Cisco Packet Tracer</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="software18" name="software_skills[]" value="Other">
+                        <label for="software18">Other</label>
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="other_software_skills"
+                    name="other_software_skills"
+                    class="other-input"
+                    placeholder="Please specify your other software skill..."
+                >
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 LANGUAGES
+            ================================================== -->
+
+            <div class="form-group full-width">
+
+                <label>
+                    Languages
+                </label>
+
+
+                <div class="checkbox-select">
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="lang1" name="languages[]" value="Sinhala">
+                        <label for="lang1">Sinhala</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="lang2" name="languages[]" value="English">
+                        <label for="lang2">English</label>
+                    </div>
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="lang3" name="languages[]" value="Tamil">
+                        <label for="lang3">Tamil</label>
+                    </div>
+
+                   
+
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="lang10" name="languages[]" value="Other">
+                        <label for="lang10">Other</label>
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="other_languages"
+                    name="other_languages"
+                    class="other-input"
+                    placeholder="Please specify another language..."
+                >
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 INTERNSHIP
+            ================================================== -->
+
+            <div class="form-group full-width">
+
+                <label for="internship">
+                    Internship / Industrial Training
+                </label>
+
+
+                <select
+                    id="internship"
+                    name="internship"
+                >
+
+                    <option value="">
+                        -- Select Status --
+                    </option>
+
+                    <option value="No Internship Yet">
+                        No Internship Yet
+                    </option>
+
+                    <option value="Currently Seeking Internship">
+                        Currently Seeking Internship
+                    </option>
+
+                    <option value="Currently Doing Internship">
+                        Currently Doing Internship
+                    </option>
+
+                    <option value="Internship Completed">
+                        Internship Completed
+                    </option>
+
+                    <option value="Industrial Training Completed">
+                        Industrial Training Completed
+                    </option>
+
+                    <option value="Industrial Training in Progress">
+                        Industrial Training in Progress
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    id="other_internship"
+                    name="other_internship"
+                    class="other-input"
+                    placeholder="Please specify..."
+                >
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 EXPERIENCE
+            ================================================== -->
+
+            <div class="form-group full-width">
+
+                <label for="experience">
+                    Research / Part-time Experience
+                </label>
+
+
+                <select
+                    id="experience"
+                    name="experience"
+                >
+
+                    <option value="">
+                        -- Select Experience --
+                    </option>
+
+                    <option value="No Experience">
+                        No Experience
+                    </option>
+
+                    <option value="Undergraduate Research Assistant">
+                        Undergraduate Research Assistant
+                    </option>
+
+                    <option value="Research Project Experience">
+                        Research Project Experience
+                    </option>
+
+                    <option value="Part-time Job">
+                        Part-time Job
+                    </option>
+
+                    <option value="Freelancing">
+                        Freelancing
+                    </option>
+
+                    <option value="Volunteer Experience">
+                        Volunteer Experience
+                    </option>
+
+                    <option value="Industry Experience">
+                        Industry Experience
+                    </option>
+
+                    <option value="Teaching / Tutoring">
+                        Teaching / Tutoring
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    id="other_experience"
+                    name="other_experience"
+                    class="other-input"
+                    placeholder="Please specify..."
+                >
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 LEADERSHIP
+            ================================================== -->
+
+            <div class="form-group full-width">
+
+                <label for="leadership">
+                    Leadership / Volunteering
+                </label>
+
+
+                <select
+                    id="leadership"
+                    name="leadership"
+                >
+
+                    <option value="">
+                        -- Select Activity --
+                    </option>
+
+                    <option value="No Leadership Experience">
+                        No Leadership Experience
+                    </option>
+
+                    <option value="Student Society Member">
+                        Student Society Member
+                    </option>
+
+                    <option value="Student Society Committee Member">
+                        Student Society Committee Member
+                    </option>
+
+                    <option value="Club Member">
+                        Club Member
+                    </option>
+
+                    <option value="Club Committee Member">
+                        Club Committee Member
+                    </option>
+
+                    <option value="Class Representative">
+                        Class Representative
+                    </option>
+
+                    <option value="Event Organizer">
+                        Event Organizer
+                    </option>
+
+                    <option value="Volunteer">
+                        Volunteer
+                    </option>
+
+                    <option value="Community Service">
+                        Community Service
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    id="other_leadership"
+                    name="other_leadership"
+                    class="other-input"
+                    placeholder="Please specify..."
+                >
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 CAREER PREFERENCES
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label for="preferences">
+                    Career Preferences
+                </label>
+
+
+                <select
+                    id="preferences"
+                    name="preferences"
+                >
+
+                    <option value="">
+                        -- Select Preference --
+                    </option>
+
+                    <option value="Private Sector Job">
+                        Private Sector Job
+                    </option>
+
+                    <option value="Government Job">
+                        Government Job
+                    </option>
+
+                    <option value="Graduate Trainee">
+                        Graduate Trainee
+                    </option>
+
+                    <option value="Internship">
+                        Internship
+                    </option>
+
+                    <option value="Research Assistant">
+                        Research Assistant
+                    </option>
+
+                    <option value="Higher Studies">
+                        Higher Studies
+                    </option>
+
+                    <option value="Academic Career">
+                        Academic Career
+                    </option>
+
+                    <option value="Freelancing">
+                        Freelancing
+                    </option>
+
+                    <option value="Remote Job">
+                        Remote Job
+                    </option>
+
+                    <option value="Entrepreneurship">
+                        Entrepreneurship
+                    </option>
+
+                    <option value="Open to Any Opportunity">
+                        Open to Any Opportunity
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    id="other_preferences"
+                    name="other_preferences"
+                    class="other-input"
+                    placeholder="Please specify..."
+                >
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 CURRENT STATUS
+            ================================================== -->
+
+            <div class="form-group">
+
+                <label for="job_status">
+                    Current Status
+                </label>
+
+
+                <select
+                    id="job_status"
+                    name="job_status"
+                >
+
+                    <option value="Full-time Student">
+                        Full-time Student
+                    </option>
+
+                    <option value="Actively Seeking Internship">
+                        Actively Seeking Internship
+                    </option>
+
+                    <option value="Currently Doing Internship">
+                        Currently Doing Internship
+                    </option>
+
+                    <option value="Part-time Employed">
+                        Part-time Employed
+                    </option>
+
+                    <option value="Full-time Employed">
+                        Full-time Employed
+                    </option>
+
+                    <option value="Freelancing">
+                        Freelancing
+                    </option>
+
+                    <option value="Higher Studies">
+                        Higher Studies
+                    </option>
+
+                    <option value="Not Currently Seeking">
+                        Not Currently Seeking
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    id="other_job_status"
+                    name="other_job_status"
+                    class="other-input"
+                    placeholder="Please specify..."
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================= SUBMIT ================= -->
+
+        <button
+            type="submit"
+            class="submit-btn"
+        >
+            Register Student
+        </button>
+
+
+    </form>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================================
+   DEGREE → SUBJECT COMBINATION
+========================================================= */
+
+const degreeSelect =
+    document.getElementById("degree");
+
+const subjectSelect =
+    document.getElementById("subjects");
+
+
+const subjectData = {
+
+    "biological-general": [
+
+        ["BS1", "BS1 — Chemistry + Botany + Zoology"],
+
+        ["BS2", "BS2 — Chemistry + Zoology + Physics"],
+
+        ["BS3", "BS3 — Chemistry + Botany + Physics"],
+
+        ["BS4", "BS4 — Botany + Zoology + Physics"]
+
+    ],
+
+
+    "biological-honours": [
+
+        ["BS1", "BS1 — Chemistry + Botany + Zoology"],
+
+        ["BS2", "BS2 — Chemistry + Zoology + Physics"],
+
+        ["BS3", "BS3 — Chemistry + Botany + Physics"],
+
+        ["BS4", "BS4 — Botany + Zoology + Physics"]
+
+    ],
+
+
+    "physical-general": [
+
+        ["PS1", "PS1 — Mathematics + Industrial Mathematics + Chemistry"],
+
+        ["PS2", "PS2 — Mathematics + Industrial Mathematics + Physics"],
+
+        ["PS3", "PS3 — Mathematics + Chemistry + Physics"],
+
+        ["PS4", "PS4 — Mathematics + Applied Mathematics + Chemistry"],
+
+        ["PS5", "PS5 — Mathematics + Applied Mathematics + Physics"],
+
+        ["PS6", "PS6 — Mathematics + Applied Mathematics + Computer Science"],
+
+        ["PS7", "PS7 — Mathematics + Physics + Computer Science"],
+
+        ["PS8", "PS8 — Mathematics + Chemistry + Computer Science"]
+
+    ],
+
+
+    "physical-honours": [
+
+        ["PS1", "PS1 — Mathematics + Industrial Mathematics + Chemistry"],
+
+        ["PS2", "PS2 — Mathematics + Industrial Mathematics + Physics"],
+
+        ["PS3", "PS3 — Mathematics + Chemistry + Physics"],
+
+        ["PS4", "PS4 — Mathematics + Applied Mathematics + Chemistry"],
+
+        ["PS5", "PS5 — Mathematics + Applied Mathematics + Physics"],
+
+        ["PS6", "PS6 — Mathematics + Applied Mathematics + Computer Science"],
+
+        ["PS7", "PS7 — Mathematics + Physics + Computer Science"],
+
+        ["PS8", "PS8 — Mathematics + Chemistry + Computer Science"]
+
+    ]
+
+};
+
+
+degreeSelect.addEventListener("change", function () {
+
+    const selectedDegree = this.value;
+
+
+    subjectSelect.innerHTML = "";
+
+
+    const defaultOption =
+        document.createElement("option");
+
+    defaultOption.value = "";
+
+    defaultOption.textContent =
+        "-- Select Subject Combination --";
+
+    subjectSelect.appendChild(defaultOption);
+
+
+    if (
+        subjectData[selectedDegree] &&
+        subjectData[selectedDegree].length > 0
+    ) {
+
+        subjectData[selectedDegree].forEach(function (subject) {
+
+            const option =
+                document.createElement("option");
+
+            option.value = subject[0];
+
+            option.textContent = subject[1];
+
+            subjectSelect.appendChild(option);
+
+        });
+
+
+        subjectSelect.disabled = false;
+
+    }
+
+    else {
+
+        subjectSelect.disabled = true;
+
+    }
+
+});
+
+
+
+/* =========================================================
+   CHECKBOX OTHER
+========================================================= */
+
+const checkboxOtherPairs = [
+
+    ["career18", "other_career_interests"],
+
+    ["tech19", "other_tech_skills"],
+
+    ["soft14", "other_soft_skills"],
+
+    ["software18", "other_software_skills"],
+
+    ["lang10", "other_languages"]
+
+];
+
+
+checkboxOtherPairs.forEach(function (pair) {
+
+    const checkbox =
+        document.getElementById(pair[0]);
+
+    const input =
+        document.getElementById(pair[1]);
+
+
+    if (!checkbox || !input) {
+        return;
+    }
+
+
+    checkbox.addEventListener("change", function () {
+
+        if (this.checked) {
+
+            input.classList.add("show");
+
+            input.focus();
+
+        }
+
+        else {
+
+            input.classList.remove("show");
+
+            input.value = "";
+
+        }
+
+    });
+
+});
+
+
+
+/* =========================================================
+   SELECT OTHER
+========================================================= */
+
+const selectOtherPairs = [
+
+    ["internship", "other_internship"],
+
+    ["experience", "other_experience"],
+
+    ["leadership", "other_leadership"],
+
+    ["preferences", "other_preferences"],
+
+    ["job_status", "other_job_status"]
+
+];
+
+
+selectOtherPairs.forEach(function (pair) {
+
+    const select =
+        document.getElementById(pair[0]);
+
+    const input =
+        document.getElementById(pair[1]);
+
+
+    if (!select || !input) {
+        return;
+    }
+
+
+    function checkOther() {
+
+        if (select.value === "Other") {
+
+            input.classList.add("show");
+
+        }
+
+        else {
+
+            input.classList.remove("show");
+
+            input.value = "";
+
+        }
+
+    }
+
+
+    select.addEventListener(
+        "change",
+        checkOther
+    );
+
+
+    checkOther();
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

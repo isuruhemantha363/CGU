@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CGU Training & Career Development</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f5f8fb;
+            color: #172b4d;
+            min-height: 100vh;
+        }
+
+        :root {
+            --navy: #12345b;
+            --blue: #1769aa;
+            --sky: #edf6fc;
+            --line: #d8e4ee;
+            --ink: #172b4d;
+            --muted: #62748a;
+            --white: #ffffff;
+            --green: #16834b;
+            --green-bg: #eaf8f0;
+            --orange: #d97706;
+            --orange-bg: #fff7e8;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .top-header {
+            background: var(--navy);
+            color: white;
+            padding: 22px 30px;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand h1 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .brand p {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            max-width: 1200px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .page-intro {
+            margin-bottom: 25px;
+        }
+
+        .page-intro h2 {
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        .page-intro p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(18, 52, 91, 0.04);
+        }
+
+        .card-header {
+            padding: 20px 24px;
+            background: var(--sky);
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-header-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: var(--blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-header h3 {
+            font-size: 18px;
+            color: var(--navy);
+        }
+
+        .card-header p {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 7px;
+            color: var(--ink);
+        }
+
+        .required {
+            color: #d32f2f;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--ink);
+            background: white;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.08);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .help-text {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        /* =========================
+           COMPETENCIES
+        ========================= */
+
+        .competency-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .competency-item {
+            position: relative;
+        }
+
+        .competency-item input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .competency-item label {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 11px 12px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            display: block;
+            background: white;
+            transition: 0.2s;
+            margin: 0;
+        }
+
+        .competency-item input:checked + label {
+            border-color: var(--blue);
+            background: var(--sky);
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .button-row {
+            margin-top: 24px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #125a91;
+        }
+
+        .btn-secondary {
+            background: #eef2f6;
+            color: var(--ink);
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8ef;
+        }
+
+        /* =========================
+           STUDENT RECORD SEARCH
+        ========================= */
+
+        .student-box {
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+
+        .student-search {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+        }
+
+        /* =========================
+           SUMMARY CARDS
+        ========================= */
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .summary-card {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 17px;
+            background: white;
+        }
+
+        .summary-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .summary-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            background: var(--sky);
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .summary-number {
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 10px;
+        }
+
+        .summary-label {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 850px;
+        }
+
+        th {
+            background: #f7f9fb;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-align: left;
+            padding: 13px 12px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        td {
+            padding: 14px 12px;
+            font-size: 13px;
+            border-bottom: 1px solid #edf1f4;
+            vertical-align: top;
+        }
+
+        tbody tr:hover {
+            background: #fafcfe;
+        }
+
+        .programme-name {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .trainer {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           BADGES
+        ========================= */
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .badge-green {
+            background: var(--green-bg);
+            color: var(--green);
+        }
+
+        .badge-orange {
+            background: var(--orange-bg);
+            color: var(--orange);
+        }
+
+        .badge-gray {
+            background: #f1f3f5;
+            color: #6b7280;
+        }
+
+        .check {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        /* =========================
+           PROGRAMME LIST
+        ========================= */
+
+        .programme-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .programme-item {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .programme-info h4 {
+            color: var(--navy);
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .programme-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .programme-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .programme-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .small-btn {
+            border: 1px solid var(--line);
+            background: white;
+            border-radius: 7px;
+            padding: 8px 11px;
+            cursor: pointer;
+            color: var(--blue);
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .small-btn:hover {
+            background: var(--sky);
+        }
+
+        /* =========================
+           CERTIFICATION
+        ========================= */
+
+        .certification-box {
+            background: linear-gradient(135deg, #edf6fc, #ffffff);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .certification-box h4 {
+            color: var(--navy);
+            margin-bottom: 7px;
+        }
+
+        .certification-box p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .requirements {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .requirement {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .requirement.completed {
+            border-color: #a7dfbf;
+            background: #f1fbf5;
+        }
+
+        .requirement.completed i {
+            color: var(--green);
+        }
+
+        /* =========================
+           EMPTY
+        ========================= */
+
+        .empty-state {
+            text-align: center;
+            padding: 35px 20px;
+            color: var(--muted);
+        }
+
+        .empty-state i {
+            margin-bottom: 10px;
+            opacity: 0.5;
+        }
+
+        .empty-state p {
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .competency-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .requirements {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .top-header {
+                padding: 18px;
+            }
+
+            .header-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .container {
+                margin: 25px auto;
+                padding: 0 14px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .competency-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .student-search {
+                grid-template-columns: 1fr;
+            }
+
+            .programme-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .requirements {
+                grid-template-columns: 1fr;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+            .button-row .btn {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="top-header">
+
+    <div class="header-inner">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i data-lucide="graduation-cap"></i>
+            </div>
+
+            <div>
+                <h1>Career Guidance Unit</h1>
+                <p>University of Ruhuna - Faculty of Science</p>
+            </div>
+
+        </div>
+
+        <a href="admin_dashboard.html" class="back-btn">
+            <i data-lucide="arrow-left" size="16"></i>
+            Dashboard
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+
+    <div class="page-intro">
+
+        <h2>Training & Career Development Record</h2>
+
+        <p>
+            Create CGU programmes, record student participation,
+            and maintain each student's career development history.
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         CREATE PROGRAMME
+    ========================= -->
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <div class="card-header-icon">
+                <i data-lucide="calendar-plus"></i>
+            </div>
+
+            <div>
+                <h3>Create New Programme</h3>
+                <p>Add a new training programme or career development activity</p>
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <form id="programmeForm">
+
+                <div class="form-grid">
+
+                    <!-- Programme -->
+
+                    <div class="form-group full">
+
+                        <label for="programme_name">
+                            Programme Name <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="programme_name"
+                            name="programme_name"
+                            placeholder="e.g. Communication Skills Training"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Date -->
+
+                    <div class="form-group">
+
+                        <label for="programme_date">
+                            Date <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="date"
+                            id="programme_date"
+                            name="programme_date"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Trainer -->
+
+                    <div class="form-group">
+
+                        <label for="trainer">
+                            Trainer <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="trainer"
+                            name="trainer"
+                            placeholder="e.g. Mr. John Perera"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Competencies -->
+
+                    <div class="form-group full">
+
+                        <label>
+                            Competencies Covered
+                        </label>
+
+                        <div class="competency-grid">
+
+                            <div class="competency-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="communication"
+                                    name="competencies[]"
+                                    value="Communication"
+                                >
+
+                                <label for="communication">
+                                    Communication
+                                </label>
+
+                            </div>
+
+
+                            <div class="competency-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="presentation"
+                                    name="competencies[]"
+                                    value="Presentation"
+                                >
+
+                                <label for="presentation">
+                                    Presentation
+                                </label>
+
+                            </div>
+
+
+                            <div class="competency-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="teamwork"
+                                    name="competencies[]"
+                                    value="Teamwork"
+                                >
+
+                                <label for="teamwork">
+                                    Teamwork
+                                </label>
+
+                            </div>
+
+
+                            <div class="competency-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="leadership"
+                                    name="competencies[]"
+                                    value="Leadership"
+                                >
+
+                                <label for="leadership">
+                                    Leadership
+                                </label>
+
+                            </div>
+
+
+                            <div class="competency-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="cvwriting"
+                                    name="competencies[]"
+                                    value="CV Writing"
+                                >
+
+                                <label for="cvwriting">
+                                    CV Writing
+                                </label>
+
+                            </div>
+
+
+                            <div class="competency-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="interview"
+                                    name="competencies[]"
+                                    value="Interview Skills"
+                                >
+
+                                <label for="interview">
+                                    Interview Skills
+                                </label>
+
+                            </div>
+
+
+                            <div class="competency-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="problem-solving"
+                                    name="competencies[]"
+                                    value="Problem Solving"
+                                >
+
+                                <label for="problem-solving">
+                                    Problem Solving
+                                </label>
+
+                            </div>
+
+
+                            <div class="competency-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="other-competency"
+                                    name="competencies[]"
+                                    value="Other"
+                                >
+
+                                <label for="other-competency">
+                                    Other
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Other competency -->
+
+                    <div
+                        class="form-group full"
+                        id="otherCompetencyBox"
+                        style="display:none;"
+                    >
+
+                        <label for="other_competency">
+                            Other Competency
+                        </label>
+
+                        <input
+                            type="text"
+                            id="other_competency"
+                            name="other_competency"
+                            placeholder="Enter other competency"
+                        >
+
+                    </div>
+
+
+                    <!-- Description -->
+
+                    <div class="form-group full">
+
+                        <label for="description">
+                            Programme Description
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            placeholder="Enter a short description about the programme..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="button-row">
+
+                    <button
+                        type="reset"
+                        class="btn btn-secondary"
+                    >
+                        <i data-lucide="rotate-ccw" size="16"></i>
+                        Clear
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        <i data-lucide="plus-circle" size="16"></i>
+                        Create Programme
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXISTING PROGRAMMES
+    ========================= -->
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <div class="card-header-icon">
+                <i data-lucide="list-checks"></i>
+            </div>
+
+            <div>
+                <h3>CGU Programmes</h3>
+                <p>Programmes available for student participation</p>
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="programme-list">
+
+                <!-- Programme 01 -->
+
+                <div class="programme-item">
+
+                    <div class="programme-info">
+
+                        <h4>Communication Skills Training</h4>
+
+                        <div class="programme-meta">
+
+                            <span>
+                                <i data-lucide="calendar" size="14"></i>
+                                20 September 2026
+                            </span>
+
+                            <span>
+                                <i data-lucide="user" size="14"></i>
+                                Career Guidance Unit
+                            </span>
+
+                            <span>
+                                <i data-lucide="users" size="14"></i>
+                                45 Students
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="programme-actions">
+
+                        <button
+                            class="small-btn"
+                            onclick="selectProgramme('Communication Skills Training')"
+                        >
+                            <i data-lucide="user-plus" size="14"></i>
+                            Add Student
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Programme 02 -->
+
+                <div class="programme-item">
+
+                    <div class="programme-info">
+
+                        <h4>CV Writing Workshop</h4>
+
+                        <div class="programme-meta">
+
+                            <span>
+                                <i data-lucide="calendar" size="14"></i>
+                                25 September 2026
+                            </span>
+
+                            <span>
+                                <i data-lucide="user" size="14"></i>
+                                CGU Career Advisor
+                            </span>
+
+                            <span>
+                                <i data-lucide="users" size="14"></i>
+                                32 Students
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="programme-actions">
+
+                        <button
+                            class="small-btn"
+                            onclick="selectProgramme('CV Writing Workshop')"
+                        >
+                            <i data-lucide="user-plus" size="14"></i>
+                            Add Student
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Programme 03 -->
+
+                <div class="programme-item">
+
+                    <div class="programme-info">
+
+                        <h4>Leadership Development Programme</h4>
+
+                        <div class="programme-meta">
+
+                            <span>
+                                <i data-lucide="calendar" size="14"></i>
+                                05 October 2026
+                            </span>
+
+                            <span>
+                                <i data-lucide="user" size="14"></i>
+                                External Trainer
+                            </span>
+
+                            <span>
+                                <i data-lucide="users" size="14"></i>
+                                28 Students
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="programme-actions">
+
+                        <button
+                            class="small-btn"
+                            onclick="selectProgramme('Leadership Development Programme')"
+                        >
+                            <i data-lucide="user-plus" size="14"></i>
+                            Add Student
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ADD STUDENT RECORD
+    ========================= -->
+
+    <section class="card" id="studentRecordSection">
+
+        <div class="card-header">
+
+            <div class="card-header-icon">
+                <i data-lucide="user-plus"></i>
+            </div>
+
+            <div>
+                <h3>Record Student Participation</h3>
+                <p>Add a completed programme to a student's career development record</p>
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="student-box">
+
+                <div class="student-search">
+
+                    <div class="form-group">
+
+                        <label for="student_number">
+                            Student Registration Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="student_number"
+                            placeholder="e.g. SC/2023/12345"
+                        >
+
+                    </div>
+
+
+                    <div style="display:flex;align-items:end;">
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            onclick="loadStudent()"
+                        >
+                            <i data-lucide="search" size="16"></i>
+                            Find Student
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <form id="recordForm">
+
+                <div class="form-grid">
+
+                    <!-- Student -->
+
+                    <div class="form-group">
+
+                        <label for="record_student">
+                            Student
+                        </label>
+
+                        <input
+                            type="text"
+                            id="record_student"
+                            placeholder="Student name"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <!-- Programme -->
+
+                    <div class="form-group">
+
+                        <label for="record_programme">
+                            Programme <span class="required">*</span>
+                        </label>
+
+                        <select id="record_programme" required>
+
+                            <option value="">
+                                Select Programme
+                            </option>
+
+                            <option>
+                                Communication Skills Training
+                            </option>
+
+                            <option>
+                                CV Writing Workshop
+                            </option>
+
+                            <option>
+                                Leadership Development Programme
+                            </option>
+
+                            <option>
+                                Individual CV Consultation
+                            </option>
+
+                            <option>
+                                MAS Pathfinder
+                            </option>
+
+                            <option>
+                                MAS Interview
+                            </option>
+
+                            <option>
+                                Career Fair
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Attendance -->
+
+                    <div class="form-group">
+
+                        <label for="attendance">
+                            Attendance
+                        </label>
+
+                        <select id="attendance">
+
+                            <option value="Present">
+                                Present
+                            </option>
+
+                            <option value="Absent">
+                                Absent
+                            </option>
+
+                            <option value="Late">
+                                Late
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Assessment -->
+
+                    <div class="form-group">
+
+                        <label for="assessment">
+                            Assessment / Completion
+                        </label>
+
+                        <input
+                            type="text"
+                            id="assessment"
+                            placeholder="e.g. 5/5, Completed, Pass"
+                        >
+
+                        <span class="help-text">
+                            You can enter a score or completion status.
+                        </span>
+
+                    </div>
+
+
+                    <!-- Certificate -->
+
+                    <div class="form-group">
+
+                        <label for="certificate">
+                            Certificate
+                        </label>
+
+                        <select id="certificate">
+
+                            <option value="Yes">
+                                Yes
+                            </option>
+
+                            <option value="No">
+                                No
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Completed Date -->
+
+                    <div class="form-group">
+
+                        <label for="completed_date">
+                            Completion Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="completed_date"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="button-row">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        <i data-lucide="save" size="16"></i>
+                        Save Career Record
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STUDENT CAREER RECORD
+    ========================= -->
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <div class="card-header-icon">
+                <i data-lucide="briefcase-business"></i>
+            </div>
+
+            <div>
+                <h3>Student Career Development Record</h3>
+                <p>Completed CGU programmes and career development activities</p>
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <!-- Student Information -->
+
+            <div
+                style="
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    gap:15px;
+                    margin-bottom:20px;
+                    flex-wrap:wrap;
+                "
+            >
+
+                <div>
+
+                    <div
+                        style="
+                            font-size:12px;
+                            color:var(--muted);
+                            margin-bottom:4px;
+                        "
+                    >
+                        Student
+                    </div>
+
+                    <div
+                        style="
+                            font-size:18px;
+                            font-weight:700;
+                            color:var(--navy);
+                        "
+                    >
+                        Isuru Hemantha
+                    </div>
+
+                    <div
+                        style="
+                            font-size:12px;
+                            color:var(--muted);
+                            margin-top:3px;
+                        "
+                    >
+                        Registration No: SC/2023/12345
+                    </div>
+
+                </div>
+
+
+                <span class="badge badge-green">
+
+                    <i data-lucide="circle-check" size="14"></i>
+
+                    Career Record Active
+
+                </span>
+
+            </div>
+
+
+            <!-- Summary -->
+
+            <div class="summary-grid">
+
+                <div class="summary-card">
+
+                    <div class="summary-top">
+
+                        <div class="summary-label">
+                            Programmes Completed
+                        </div>
+
+                        <div class="summary-icon">
+                            <i data-lucide="graduation-cap" size="18"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="summary-number">
+                        8
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-top">
+
+                        <div class="summary-label">
+                            Certificates
+                        </div>
+
+                        <div class="summary-icon">
+                            <i data-lucide="award" size="18"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="summary-number">
+                        6
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-top">
+
+                        <div class="summary-label">
+                            Competencies
+                        </div>
+
+                        <div class="summary-icon">
+                            <i data-lucide="target" size="18"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="summary-number">
+                        9
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-top">
+
+                        <div class="summary-label">
+                            Career Activities
+                        </div>
+
+                        <div class="summary-icon">
+                            <i data-lucide="briefcase" size="18"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="summary-number">
+                        8
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Record Table -->
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Programme</th>
+
+                            <th>Date</th>
+
+                            <th>Trainer</th>
+
+                            <th>Competencies</th>
+
+                            <th>Attendance</th>
+
+                            <th>Assessment</th>
+
+                            <th>Certificate</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <!-- Record 1 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="programme-name">
+                                    Communication Skills Training
+                                </div>
+
+                                <div class="trainer">
+                                    CGU Programme
+                                </div>
+
+                            </td>
+
+                            <td>
+                                20 Sep 2026
+                            </td>
+
+                            <td>
+                                Career Guidance Unit
+                            </td>
+
+                            <td>
+                                Communication<br>
+                                Presentation<br>
+                                Teamwork
+                            </td>
+
+                            <td>
+
+                                <span class="badge badge-green">
+                                    Present
+                                </span>
+
+                            </td>
+
+                            <td>
+                                5/5
+                            </td>
+
+                            <td>
+
+                                <span class="badge badge-green">
+                                    <i data-lucide="check" size="12"></i>
+                                    Yes
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span class="check">
+                                    ✓ Completed
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- Record 2 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="programme-name">
+                                    Individual CV Consultation
+                                </div>
+
+                                <div class="trainer">
+                                    Career Advisor
+                                </div>
+
+                            </td>
+
+                            <td>
+                                22 Sep 2026
+                            </td>
+
+                            <td>
+                                CGU Advisor
+                            </td>
+
+                            <td>
+                                CV Writing
+                            </td>
+
+                            <td>
+
+                                <span class="badge badge-green">
+                                    Present
+                                </span>
+
+                            </td>
+
+                            <td>
+                                Completed
+                            </td>
+
+                            <td>
+
+                                <span class="badge badge-green">
+                                    Yes
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span class="check">
+                                    ✓ Completed
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- Record 3 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="programme-name">
+                                    Leadership Development Programme
+                                </div>
+
+                                <div class="trainer">
+                                    External Training
+                                </div>
+
+                            </td>
+
+                            <td>
+                                05 Oct 2026
+                            </td>
+
+                            <td>
+                                External Trainer
+                            </td>
+
+                            <td>
+                                Leadership<br>
+                                Teamwork<br>
+                                Communication
+                            </td>
+
+                            <td>
+
+                                <span class="badge badge-green">
+                                    Present
+                                </span>
+
+                            </td>
+
+                            <td>
+                                4/5
+                            </td>
+
+                            <td>
+
+                                <span class="badge badge-orange">
+                                    No
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span class="check">
+                                    ✓ Completed
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- Record 4 -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="programme-name">
+                                    Career Fair
+                                </div>
+
+                                <div class="trainer">
+                                    CGU
+                                </div>
+
+                            </td>
+
+                            <td>
+                                12 Oct 2026
+                            </td>
+
+                            <td>
+                                Career Guidance Unit
+                            </td>
+
+                            <td>
+                                Networking<br>
+                                Communication
+                            </td>
+
+                            <td>
+
+                                <span class="badge badge-green">
+                                    Present
+                                </span>
+
+                            </td>
+
+                            <td>
+                                Completed
+                            </td>
+
+                            <td>
+
+                                <span class="badge badge-gray">
+                                    No
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span class="check">
+                                    ✓ Completed
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CAREER CERTIFICATION
+    ========================= -->
+
+    <section class="card">
+
+        <div class="card-header">
+
+            <div class="card-header-icon">
+                <i data-lucide="award"></i>
+            </div>
+
+            <div>
+
+                <h3>Career Skills Certification Progress</h3>
+
+                <p>
+                    Programme records can later be used to automatically
+                    identify certification requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="certification-box">
+
+                <h4>
+                    Career Skills Certification
+                </h4>
+
+                <p>
+                    The system can automatically check completed programmes
+                    against the required career development activities.
+                    A requirement becomes completed when the student
+                    successfully participates in the relevant programme.
+                </p>
+
+
+                <div class="requirements">
+
+                    <div class="requirement completed">
+
+                        <i data-lucide="check-circle" size="17"></i>
+
+                        CV Writing
+
+                    </div>
+
+
+                    <div class="requirement completed">
+
+                        <i data-lucide="check-circle" size="17"></i>
+
+                        Individual CV Consultation
+
+                    </div>
+
+
+                    <div class="requirement completed">
+
+                        <i data-lucide="check-circle" size="17"></i>
+
+                        Communication Skills
+
+                    </div>
+
+
+                    <div class="requirement completed">
+
+                        <i data-lucide="check-circle" size="17"></i>
+
+                        Leadership
+
+                    </div>
+
+
+                    <div class="requirement completed">
+
+                        <i data-lucide="check-circle" size="17"></i>
+
+                        MAS Pathfinder
+
+                    </div>
+
+
+                    <div class="requirement completed">
+
+                        <i data-lucide="check-circle" size="17"></i>
+
+                        MAS Interview
+
+                    </div>
+
+
+                    <div class="requirement completed">
+
+                        <i data-lucide="check-circle" size="17"></i>
+
+                        Career Fair
+
+                    </div>
+
+
+                    <div class="requirement">
+
+                        <i data-lucide="circle" size="17"></i>
+
+                        Internship
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+    /* =========================
+       LUCIDE ICONS
+    ========================= */
+
+    lucide.createIcons();
+
+
+    /* =========================
+       OTHER COMPETENCY
+    ========================= */
+
+    const otherCompetency =
+        document.getElementById("other-competency");
+
+    const otherCompetencyBox =
+        document.getElementById("otherCompetencyBox");
+
+    otherCompetency.addEventListener("change", function () {
+
+        if (this.checked) {
+
+            otherCompetencyBox.style.display = "flex";
+
+        } else {
+
+            otherCompetencyBox.style.display = "none";
+
+            document.getElementById("other_competency").value = "";
+
+        }
+
+    });
+
+
+    /* =========================
+       CREATE PROGRAMME
+    ========================= */
+
+    document
+        .getElementById("programmeForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const programmeName =
+                document.getElementById("programme_name").value;
+
+            alert(
+                "Programme created successfully!\n\n" +
+                "Programme: " + programmeName
+            );
+
+            this.reset();
+
+            otherCompetencyBox.style.display = "none";
+
+        });
+
+
+    /* =========================
+       SELECT PROGRAMME
+    ========================= */
+
+    function selectProgramme(programmeName) {
+
+        document.getElementById("record_programme").value =
+            programmeName;
+
+        document
+            .getElementById("studentRecordSection")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* =========================
+       FIND STUDENT
+    ========================= */
+
+    function loadStudent() {
+
+        const studentNumber =
+            document.getElementById("student_number").value.trim();
+
+        if (studentNumber === "") {
+
+            alert("Please enter Student Registration Number.");
+
+            return;
+
+        }
+
+        /*
+         * Demo only.
+         * Later this will come from MySQL database.
+         */
+
+        document.getElementById("record_student").value =
+            "Student - " + studentNumber;
+
+        alert(
+            "Student found!\n\n" +
+            "Registration Number: " + studentNumber
+        );
+
+    }
+
+
+    /* =========================
+       SAVE CAREER RECORD
+    ========================= */
+
+    document
+        .getElementById("recordForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const student =
+                document.getElementById("record_student").value;
+
+            const programme =
+                document.getElementById("record_programme").value;
+
+            if (student === "") {
+
+                alert("Please find a student first.");
+
+                return;
+
+            }
+
+            if (programme === "") {
+
+                alert("Please select a programme.");
+
+                return;
+
+            }
+
+            alert(
+                "Career Development Record saved successfully!\n\n" +
+                "Student: " + student + "\n" +
+                "Programme: " + programme
+            );
+
+            this.reset();
+
+        });
+
+</script>
+
+</body>
+</html>
